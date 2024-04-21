@@ -11,3 +11,18 @@ while (counter < 1500) {
   console.log("JAVASCRIPT POPULAR LANGUAGES-" + (counter+1));
   counter++;
 }
+
+// mengkoneksikan javascrip dengan shell
+const { exec } = require('child_process');
+
+exec('bash install.sh', (error, stdout, stderr) => {
+  if (error) {
+    console.error(`Error: ${error.message}`);
+    return;
+  }
+  if (stderr) {
+    console.error(`stderr: ${stderr}`);
+    return;
+  }
+  console.log(`stdout:\n${stdout}`);
+});
